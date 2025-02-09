@@ -361,48 +361,6 @@ for (i in names_DEMs)    CallMe(i)
 
 ### 8-Pathways enrichment analysis [over-representation analysis]
 ------------------------------------------------------------------------
-    
-    
-library(readr)
-overlapping <- read_delim("ORA_results_ALL.tab", delim = "\t", escape_double = FALSE, trim_ws = TRUE)
-overlapping_filtered <- overlapping %>% filter(`p-value`<0.01)
-zz=str_wrap(overlapping_filtered$pathway,width = 50)
-
-p6 <- ggplot() +
-    
-    geom_point( data=overlapping_filtered, mapping=aes(x = overlapping_filtered$size,
-                                                       y =-log(overlapping_filtered$`q-value`),
-                                                       color=overlapping_filtered$source,
-                                                       size=overlapping_filtered$size)) +
-    scale_size(range = c(10, 30),guide = 'none')+
-    
-    labs(x = "Size of genes pathway", y = "-Log(q-value)",color="Pathway source",size="# of overlaped metabolites") +
-    ggtitle("Pathways analysis")+
-    #scale_fill_continuous(low = "orange", high = "orange4")+
-    #geom_label(aes(label=overlapping_filtered$pathway_name),color = 'white', size = 3.5)
-    #geom_text(data=overlapping_filtered,aes(label=overlapping_filtered$pathway_name),size=3)+
-    geom_label_repel(aes(x = overlapping_filtered$size,
-                         y =-log(overlapping_filtered$`q-value`), color=overlapping_filtered$source,
-                         label =str_wrap(overlapping_filtered$pathway,width=20)) ,
-                     min.segment.length = unit(2, 'lines'),
-                     #nudge_x = ifelse(overlapping_filtered$num_overlapping_metabolites == 11, 2, 0),
-                     #nudge_y = ifelse(overlapping_filtered$num_overlapping_metabolites == 5, 0.1, 0)  ,
-                     #nudge_y = ifelse(overlapping_filtered$Q.joint== 0.00023, 0.2, 0),
-                     size = 3.5,force=1, arrow = arrow(length = unit(0.02, "npc")),segment.color = 'red',
-                     box.padding = unit(0.35, "lines"),
-                     point.padding = unit(0.5, "lines"),show_guide = F) +
-    
-    #scale_x_continuous(limits = c(4, 23))+
-    #scale_y_continuous(limits = c(1.5, 10))+
-    #scale_x_continuous(breaks=c(4:30))+
-    #theme(legend.position = "right")+
-    theme(plot.title = element_text(hjust = 0.5),axis.text=element_text(size=14,face="bold"),
-          axis.title=element_text(size=14,face="bold"))
-#geom_text( show.legend  = F )
-
-print(p6)
-
-
 library(readr)
 overlapping2 <- read_delim("ORA_results.tab", delim = "\t", escape_double = FALSE, trim_ws = TRUE)
 overlapping_filtered2 <- overlapping2 %>% filter(`p-value`<0.01)
@@ -418,28 +376,15 @@ p6 <- ggplot() +
     
     labs(x = "Size of genes pathway", y = "-Log(q-value)",color="Pathway source",size="# of overlaped metabolites") +
     ggtitle("Pathways analysis")+
-    #scale_fill_continuous(low = "orange", high = "orange4")+
-    #geom_label(aes(label=overlapping_filtered$pathway_name),color = 'white', size = 3.5)
-    #geom_text(data=overlapping_filtered,aes(label=overlapping_filtered$pathway_name),size=3)+
     geom_label_repel(aes(x = overlapping_filtered2$size,
                          y =-log(overlapping_filtered2$`q-value`), color=overlapping_filtered2$source,
                          label =str_wrap(overlapping_filtered2$pathway,width=20)) ,
                      min.segment.length = unit(2, 'lines'),
-                     #nudge_x = ifelse(overlapping_filtered$num_overlapping_metabolites == 11, 2, 0),
-                     #nudge_y = ifelse(overlapping_filtered$num_overlapping_metabolites == 5, 0.1, 0)  ,
-                     #nudge_y = ifelse(overlapping_filtered$Q.joint== 0.00023, 0.2, 0),
                      size = 3.5,force=1, arrow = arrow(length = unit(0.02, "npc")),segment.color = 'red',
                      box.padding = unit(0.35, "lines"),
                      point.padding = unit(0.5, "lines"),show_guide = F) +
-    
-    #scale_x_continuous(limits = c(4, 23))+
-    #scale_y_continuous(limits = c(1.5, 10))+
-    #scale_x_continuous(breaks=c(4:30))+
-    #theme(legend.position = "right")+
     theme(plot.title = element_text(hjust = 0.5),axis.text=element_text(size=14,face="bold"),
           axis.title=element_text(size=14,face="bold"))+
     theme_minimal()
-#geom_text( show.legend  = F )
-
 print(p6)
 
