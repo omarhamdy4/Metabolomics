@@ -1,5 +1,5 @@
 # This repository is for the Metabolomics data analysis
-![image](https://github.com/user-attachments/assets/18eb980c-1e62-449d-85ca-c5214f9bd28d)
+![image](https://github.com/user-attachments/assets/dfca72cf-ed4b-4449-9452-ace9956c42f4)
 ## The folder contains 2 folders
 ***
 ### A-Script
