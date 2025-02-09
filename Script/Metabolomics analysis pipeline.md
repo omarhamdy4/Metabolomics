@@ -1,6 +1,6 @@
 # Metabolomics Analysis Using R
 ***
-> #### This notebook demonstrates a step-by-step workflow for analyzing metabolomics data using limma. The analysis includes preprocessing the expression matrix, handling metadata, Biomarker discovery for differentially expressed metabolites (DEMs), and Plotting important figures such as volcano plots, Heatmaps, PCA, OPLS-DA, PCA, and Roc curve.
+> #### This notebook demonstrates a step-by-step workflow for analyzing metabolomics data using limma. The analysis includes preprocessing the expression matrix, handling metadata, Quality control, Biomarker discovery for differentially expressed metabolites (DEMs), and multiple downstream analysis such as volcano plots, Heatmaps, PCA, OPLS-DA, PCA, clustering, and Roc curve.
 ## The Workflow goes as follows:
 ![Metabolomics Analysis Pipeline script workflow template](https://github.com/user-attachments/assets/fbb64407-a86e-49b9-ad24-61659cf1a2e9)
 ***
